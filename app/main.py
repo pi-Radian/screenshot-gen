@@ -10,14 +10,20 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+#
+# @app.get("/items/{item_id}")
+# def read_item(item_id: int, q: Union[str, None] = None):
+#     return {"item_id": item_id, "q": q}
 
 @app.get("/hello/{name}")
 def hello_world(name: str):
     return {"msg": f"hakuna matata {name}"}
+
+
+
+@app.get("/ss")
+def get_screenshot(q: Union[str, None] = None):
+    return {"msg": f"{q}"}
 
 
 if __name__ == '__main__':
