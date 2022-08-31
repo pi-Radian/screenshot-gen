@@ -15,5 +15,10 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
+@app.get("/hello/{name}")
+def hello_world(name: str):
+    return {"msg": f"hakuna matata {name}"}
+
+
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)
