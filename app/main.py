@@ -3,6 +3,8 @@ from typing import Union
 from fastapi import FastAPI
 import uvicorn
 
+from screenshot_service import get_screenshot_from_url
+
 app = FastAPI()
 
 
@@ -23,6 +25,7 @@ def hello_world(name: str):
 
 @app.get("/ss")
 def get_screenshot(q: Union[str, None] = None):
+    get_screenshot_from_url(q)
     return {"msg": f"{q}"}
 
 
