@@ -25,8 +25,8 @@ def hello_world(name: str):
 
 @app.get("/ss")
 def get_screenshot(q: Union[str, None] = None):
-    get_screenshot_from_url(q)
-    return {"msg": f"{q}"}
+    res = get_screenshot_from_url(q)
+    return {"uri": res}
 
 
 if __name__ == '__main__':

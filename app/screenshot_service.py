@@ -32,3 +32,4 @@ def get_screenshot_from_url(url: str):
     driver.save_screenshot("test3.png")  # change image name
     elapsed = "%s seconds" % (time.time() - start_time)
     print("Done in " + elapsed)
+    return 'hello'
