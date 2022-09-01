@@ -3,6 +3,8 @@ from selenium.webdriver.chrome.options import Options
 import time
 #from selenium_stealth import stealth
 import platform
+import random
+import string
 
 def get_screenshot_from_url(url: str):
     start_time = time.time()
@@ -29,7 +31,8 @@ def get_screenshot_from_url(url: str):
 
     #url = "https://youtube.com"  # change the url
     driver.get(url)
-    driver.save_screenshot("test3.png")  # change image name
+    random_path = "./tmp/" + ''.join(random.choices(string.ascii_letters, k=7)) + ".png"
+    driver.save_screenshot(random_path)
     elapsed = "%s seconds" % (time.time() - start_time)
     print("Done in " + elapsed)
     return 'hello'
