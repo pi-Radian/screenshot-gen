@@ -6,6 +6,7 @@ import platform
 import random
 import string
 import os
+from storage_service import save_img_to_bucket
 
 def get_screenshot_from_url(url: str):
     start_time = time.time()
@@ -41,6 +42,10 @@ def get_screenshot_from_url(url: str):
     random_path = "./tmp/" + ''.join(random.choices(string.ascii_letters, k=7)) + ".png"
     driver.save_screenshot(random_path)
     print(random_path)
+    
+    img_uri = save_img_to_bucket(random_path)
+    os.remove(random_path) 
+    
     elapsed = "%s seconds" % (time.time() - start_time)
     print("Done in " + elapsed)
-    return 'hello'
+    return img_uri
