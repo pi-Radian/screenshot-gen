@@ -2,7 +2,7 @@ from typing import Union
 
 from fastapi import FastAPI
 import uvicorn
-
+import asyncio
 from screenshot_service import get_screenshot_from_url
 
 app = FastAPI()
@@ -24,8 +24,8 @@ def hello_world(name: str):
 
 
 @app.get("/ss")
-def get_screenshot(q: Union[str, None] = None):
-    res = get_screenshot_from_url(q)
+async def get_screenshot(q: Union[str, None] = None):
+    res = await asyncio.gather(get_screenshot_from_url(q))
     return {"uri": res}
 
 

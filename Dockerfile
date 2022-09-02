@@ -25,3 +25,5 @@ CMD ["nohup", "python", "./app/main.py", "&"]
 #docker run -p 8000:8000 screenshot-gen
 #docker ps
 #docker exec -it eb3e0b92df1b /bin/sh
+
+#docker cp containerId:source_path destination_path

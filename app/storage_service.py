@@ -2,10 +2,10 @@ import os
 import cloudinary
 
 cloudinary.config(
-cloud_name = str(os.getenv('CLOUDINARY_CLOUD_NAME')),
-api_key = str(os.getenv('CLOUDINARY_API_KEY')),
-api_secret =str(os.getenv('CLOUDINARY_API_SECRET')),
-#api_proxy = "http://proxy.server:9999"
+    cloud_name=str(os.getenv('CLOUDINARY_CLOUD_NAME')),
+    api_key=str(os.getenv('CLOUDINARY_API_KEY')),
+    api_secret=str(os.getenv('CLOUDINARY_API_SECRET')),
+    # api_proxy = "http://proxy.server:9999"
 )
 
 import cloudinary.uploader
@@ -21,6 +21,7 @@ import cloudinary.api
 
 
 def save_img_to_bucket(random_path):
-    #file_name = random_path.split('/')[-1]
-    res = cloudinary.uploader.upload(random_path, folder = "scgen", public_id = random_path.split('/')[-1], resource_type = "image")
+    # file_name = random_path.split('/')[-1]
+    res = cloudinary.uploader.upload(random_path, folder="scgen", public_id=random_path.split('/')[-1].split('.')[0],
+                                     resource_type="image")
     return res['secure_url']
