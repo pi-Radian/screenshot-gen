@@ -1,3 +1,5 @@
+#!/usr/bin/env -S docker build . --tag=dude/man:v2 --network=host --file
+
 FROM python:3.9
 
 WORKDIR /ScreenshotGen
