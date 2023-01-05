@@ -1,5 +1,5 @@
 from typing import Union
-
+import os
 from fastapi import FastAPI
 import uvicorn
 
@@ -30,4 +30,5 @@ def get_screenshot(q: Union[str, None] = None):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    #uvicorn.run(app, host='0.0.0.0', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=os.environ['PORT'])
